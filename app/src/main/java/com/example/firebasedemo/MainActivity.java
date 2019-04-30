@@ -74,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         progressDialog.setMessage("Registering User...");
         progressDialog.show();
-
         firebaseAuth.createUserWithEmailAndPassword(email, password).
                 addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -83,10 +82,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             //user is successfully registered and logged in
                             //we will start the profile activity here
                             //right now lets display toast only
+                            progressDialog.hide();
                             Toast.makeText(MainActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                             }
                         else{
-                            Toast.makeText(MainActivity.this, "Registered Unsuccessful", Toast.LENGTH_SHORT).show();
+                            progressDialog.hide();
+                            Toast.makeText(MainActivity.this, "Register Unsuccessful", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
