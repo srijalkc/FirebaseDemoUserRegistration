@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FireBaseDemo</string>
+    <string name="editTextEmail">editTextEmail</string>
 </resources>
